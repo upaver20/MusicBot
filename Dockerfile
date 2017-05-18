@@ -1,32 +1,23 @@
-FROM ubuntu:14.04
+FROM debian:stretch
 
-MAINTAINER Sidesplitter, https://github.com/SexualRhinoceros/MusicBot
+MAINTAINER upaver20, https://upaver20.com
 
 #Install dependencies
-RUN sudo apt-get update \
-    && sudo apt-get install software-properties-common -y \
-    && sudo add-apt-repository ppa:fkrull/deadsnakes -y \
-    && sudo add-apt-repository ppa:mc3man/trusty-media -y \
-    && sudo apt-get update -y \
-    && sudo apt-get install build-essential unzip -y \
-    && sudo apt-get install python3.5 python3.5-dev -y \
-    && sudo apt-get install ffmpeg -y \
-    && sudo apt-get install libopus-dev -y \
-    && sudo apt-get install libffi-dev -y
+RUN apt-get update \
+   && apt-get upgrade -y
 
-#Install Pip
-RUN sudo apt-get install wget \
-    && wget https://bootstrap.pypa.io/get-pip.py \
-    && sudo python3.5 get-pip.py
+RUN apt-get update \
+   && apt-get install git libopus-dev libffi-dev libsodium-dev build-essential libncursesw5-dev libgdbm-dev libc6-dev zlib1g-dev libsqlite3-dev tk-dev libssl-dev openssl python3.5 python3-pip -y
 
-#Add musicBot
-ADD . /musicBot
-WORKDIR /musicBot
+RUN git clone https://github.com/upaver20/MusicBot.git MusicBot -b master
+
+WORKDIR /MusicBot
 
 #Install PIP dependencies
-RUN sudo pip install -r requirements.txt
+RUN python3 -m pip install --upgrade pip
+RUN python3 -m pip install --upgrade -r requirements.txt
 
 #Add volume for configuration
 VOLUME /musicBot/config
 
-CMD python3.5 run.py
+CMD python3 run.py
