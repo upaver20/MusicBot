@@ -1,13 +1,9 @@
-FROM debian:stretch
+FROM alpine
 
 MAINTAINER upaver20, https://upaver20.com
 
-#Install dependencies
-RUN apt-get update \
-   && apt-get upgrade -y
-
-RUN apt-get update \
-   && apt-get install git libopus-dev libffi-dev libsodium-dev build-essential libncursesw5-dev libgdbm-dev libc6-dev zlib1g-dev libsqlite3-dev tk-dev libssl-dev openssl python3.5 python3-pip ffmpeg x264 -y
+RUN apk update
+RUN apk add git libffi-dev libsodium-dev alpine-sdk gdbm-dev libc-dev zlib-dev sqlite-dev tk-dev openssl-dev openssl python3 ffmpeg x264 python3-dev
 
 RUN git clone https://github.com/upaver20/MusicBot.git MusicBot -b master
 
