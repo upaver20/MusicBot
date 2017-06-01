@@ -9,7 +9,7 @@ RUN apk update \
  && cd /MusicBot \
  && python3 -m pip install --upgrade pip \
  && python3 -m pip install --upgrade -r requirements.txt \
- $$ apk del .build-deps
+ && apk del .build-deps
 
 VOLUME /musicBot/config
 
