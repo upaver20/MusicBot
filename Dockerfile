@@ -10,7 +10,6 @@ RUN apk update \
  && python3 -m pip install --upgrade pip \
  && python3 -m pip install --upgrade -r requirements.txt\ 
  && apk del --purge .build-deps \
- && rm -rf ~/.cache/pip
 
 VOLUME /MusicBot/config
 
