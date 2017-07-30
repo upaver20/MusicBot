@@ -2,6 +2,15 @@
 
 MusicBot is a Discord music bot written in [Python](https://www.python.org "Python homepage"). It plays requested songs and if the queue becomes empty it will play through a list of existing songs.
 
+### Usage
+
+	git clone https://github.com/upaver20/MusicBot
+    docker run -d --restart=always \
+        && -v "Path to config files":/MusicBot/config \
+        && --name MusicBot upaver20/musicbot:latest
+
+---
+
 ### How do I set it up?
 
 [CLICK HERE](https://github.com/SexualRhinoceros/MusicBot/wiki) to find the guide that suites your operating system.
@@ -26,10 +35,3 @@ If you have any errors, read the FAQ. If that didn't help, you can ask for assis
 ### FAQ
 
 Some frequently asked questions are listed on the wiki [here](https://github.com/SexualRhinoceros/MusicBot/wiki/FAQ "Wiki").
-
-### Usage
-
-	git clone https://github.com/upaver20/MusicBot
-    docker run -d --restart=always \
-        && -v "Path to config files":/MusicBot/config \
-        && --name MusicBot upaver20/musicbot:latest
