@@ -4,8 +4,8 @@ MusicBot is a Discord music bot written in [Python](https://www.python.org "Pyth
 
 ### Usage
     docker run -d --restart=always \
-        && -v "Path to config files":/MusicBot/config \
-        && --name MusicBot upaver20/musicbot:latest
+        -v "Path to config files":/MusicBot/config \
+        --name MusicBot upaver20/musicbot:latest
 
 ---
 
